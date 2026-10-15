@@ -43118,6 +43118,10 @@ hash = "0cbed1808203233f24a7953603d52deaba3ce6af413bb2236baf05481d85a02e"
 metafile = true
 
 [[files]]
+file = "mods/CobblemonExtras-neoforge-1.5.0.jar"
+hash = "dea65241bbe47c1042fe13c09ce16dd0a42e7c9c93ff358eb279f7e59bd42fd7"
+
+[[files]]
 file = "mods/accessories.pw.toml"
 hash = "e758027d3b012c6ebac5dbca564974bc94db6c6b384fd1a340a61024bad4d4e2"
 metafile = true
@@ -43395,11 +43399,6 @@ metafile = true
 [[files]]
 file = "mods/cobblemon.pw.toml"
 hash = "02c05b320a04cb41152bb79102f599a6d0655899689eb14d3da3d46c5cf1fe39"
-metafile = true
-
-[[files]]
-file = "mods/cobblemonextras.pw.toml"
-hash = "459fc8bf8f31f81ab22f5146ce2003931433516427e377e30e9424bc6c566ef3"
 metafile = true
 
 [[files]]
