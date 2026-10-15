@@ -11,3 +11,8 @@ url = "https://cdn.modrinth.com/data/nrikgvxm/versions/k32OBTlL/particlerain-4.0
 [update.modrinth]
 mod-id = "nrikgvxm"
 version = "k32OBTlL"
+
+[option]
+optional = true
+default = true
+description = "Particle Rain: particulas de chuva, neve e poeira."

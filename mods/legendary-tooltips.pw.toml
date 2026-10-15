@@ -11,3 +11,8 @@ url = "https://cdn.modrinth.com/data/atHH8NyV/versions/BabRJO04/LegendaryTooltip
 [update.modrinth]
 mod-id = "atHH8NyV"
 version = "BabRJO04"
+
+[option]
+optional = true
+default = true
+description = "Legendary Tooltips: bordas decoradas nas descricoes de itens."

@@ -11,3 +11,8 @@ url = "https://cdn.modrinth.com/data/XeEZ3fK2/versions/ROfcbxxe/freecam-neoforge
 [update.modrinth]
 mod-id = "XeEZ3fK2"
 version = "ROfcbxxe"
+
+[option]
+optional = true
+default = true
+description = "Freecam: camera livre para olhar construcoes."

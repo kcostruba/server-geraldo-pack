@@ -11,3 +11,8 @@ url = "https://cdn.modrinth.com/data/kepjj2sy/versions/gtUuy6S9/ShoulderSurfing-
 [update.modrinth]
 mod-id = "kepjj2sy"
 version = "gtUuy6S9"
+
+[option]
+optional = true
+default = true
+description = "Shoulder Surfing: camera por cima do ombro em terceira pessoa."

@@ -11,3 +11,8 @@ url = "https://cdn.modrinth.com/data/NK39zBp2/versions/xONakKZi/blur-neoforge-6.
 [update.modrinth]
 mod-id = "NK39zBp2"
 version = "xONakKZi"
+
+[option]
+optional = true
+default = true
+description = "Blur+: desfoque no fundo dos menus."

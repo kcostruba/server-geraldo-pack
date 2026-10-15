@@ -11,3 +11,8 @@ mode = "url"
 [update.modrinth]
 mod-id = "uCdwusMi"
 version = "9w34y8ai"
+
+[option]
+optional = true
+default = true
+description = "Distant Horizons: renderiza o terreno muito longe. Bonito, mas pesado em RAM e CPU."

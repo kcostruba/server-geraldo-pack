@@ -11,3 +11,8 @@ url = "https://cdn.modrinth.com/data/4I1XuqiY/versions/gEOHNhtN/entity_model_fea
 [update.modrinth]
 mod-id = "4I1XuqiY"
 version = "gEOHNhtN"
+
+[option]
+optional = true
+default = true
+description = "EMF: modelos animados de mobs (precisa do ETF)."

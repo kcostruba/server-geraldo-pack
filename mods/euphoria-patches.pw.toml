@@ -11,3 +11,8 @@ url = "https://cdn.modrinth.com/data/4H6sumDB/versions/QMsRXtSJ/EuphoriaPatcher-
 [update.modrinth]
 mod-id = "4H6sumDB"
 version = "QMsRXtSJ"
+
+[option]
+optional = true
+default = true
+description = "Euphoria Patches: extras para o shader Complementary. So faz sentido com o Iris."

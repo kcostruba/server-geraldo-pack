@@ -11,3 +11,8 @@ url = "https://cdn.modrinth.com/data/zV5r3pPn/versions/5s6lxsQW/skinlayers3d-neo
 [update.modrinth]
 mod-id = "zV5r3pPn"
 version = "5s6lxsQW"
+
+[option]
+optional = true
+default = true
+description = "3D Skin Layers: camada externa da skin em 3D."

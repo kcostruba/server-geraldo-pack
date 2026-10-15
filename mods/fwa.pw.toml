@@ -11,3 +11,8 @@ url = "https://cdn.modrinth.com/data/IAzUFvS6/versions/79A6vRlK/fwa%2B1.21.1-neo
 [update.modrinth]
 mod-id = "IAzUFvS6"
 version = "79A6vRlK"
+
+[option]
+optional = true
+default = true
+description = "Fancy World Animations: animacoes de portas, baus e blocos."

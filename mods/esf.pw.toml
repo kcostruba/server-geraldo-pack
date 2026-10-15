@@ -11,3 +11,8 @@ url = "https://cdn.modrinth.com/data/IMuO8COj/versions/eafVUs7O/entity_sound_fea
 [update.modrinth]
 mod-id = "IMuO8COj"
 version = "eafVUs7O"
+
+[option]
+optional = true
+default = true
+description = "ESF: sons variados de mobs (precisa do ETF e do EMF)."

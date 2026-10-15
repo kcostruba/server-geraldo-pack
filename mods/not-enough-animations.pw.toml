@@ -11,3 +11,8 @@ url = "https://cdn.modrinth.com/data/MPCX6s5C/versions/VCuMsK45/notenoughanimati
 [update.modrinth]
 mod-id = "MPCX6s5C"
 version = "VCuMsK45"
+
+[option]
+optional = true
+default = true
+description = "Not Enough Animations: animacoes extras do jogador."
