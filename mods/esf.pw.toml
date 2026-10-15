@@ -1,0 +1,13 @@
+filename = "entity_sound_features-0.8.2-1.21-neoforge.jar"
+name = "[ESF] Entity Sound Features"
+side = "client"
+
+[download]
+hash = "da1c5fbe0217b05cff471bcb5220b31de09f8f5e5259ce0a8493c4af470a29e4e2a6b560c5b50f1bf2d7009f30e411d84faf00e6607c597b6cba4bcd293199d4"
+hash-format = "sha512"
+mode = "url"
+url = "https://cdn.modrinth.com/data/IMuO8COj/versions/eafVUs7O/entity_sound_features-0.8.2-1.21-neoforge.jar"
+
+[update.modrinth]
+mod-id = "IMuO8COj"
+version = "eafVUs7O"

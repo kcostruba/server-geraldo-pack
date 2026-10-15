@@ -1,0 +1,154 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:coal_ore",
+          "weight": 30
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:iron_ore",
+          "weight": 25
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:copper_ore",
+          "weight": 25
+        },
+        {
+          "type": "minecraft:item",
+          "name": "alltheores:tin_ore",
+          "weight": 15
+        },
+        {
+          "type": "minecraft:item",
+          "name": "create:zinc_ore",
+          "weight": 15
+        },
+        {
+          "type": "minecraft:item",
+          "name": "alltheores:lead_ore",
+          "weight": 12
+        },
+        {
+          "type": "minecraft:item",
+          "name": "alltheores:salt_ore",
+          "weight": 8
+        },
+        {
+          "type": "minecraft:item",
+          "name": "alltheores:sulfur_ore",
+          "weight": 6
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:gold_ore",
+          "weight": 10
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:redstone_ore",
+          "weight": 12
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:lapis_ore",
+          "weight": 8
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:nether_quartz_ore",
+          "weight": 10
+        },
+        {
+          "type": "minecraft:item",
+          "name": "alltheores:silver_ore",
+          "weight": 8
+        },
+        {
+          "type": "minecraft:item",
+          "name": "alltheores:nickel_ore",
+          "weight": 8
+        },
+        {
+          "type": "minecraft:item",
+          "name": "alltheores:aluminum_ore",
+          "weight": 10
+        },
+        {
+          "type": "minecraft:item",
+          "name": "alltheores:fluorite_ore",
+          "weight": 5
+        },
+        {
+          "type": "minecraft:item",
+          "name": "alltheores:cinnabar_ore",
+          "weight": 5
+        },
+        {
+          "type": "minecraft:item",
+          "name": "tfmg:lithium_ore",
+          "weight": 4
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:diamond_ore",
+          "weight": 6
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:emerald_ore",
+          "weight": 4
+        },
+        {
+          "type": "minecraft:item",
+          "name": "alltheores:uranium_ore",
+          "weight": 8
+        },
+        {
+          "type": "minecraft:item",
+          "name": "alltheores:osmium_ore",
+          "weight": 8
+        },
+        {
+          "type": "minecraft:item",
+          "name": "alltheores:platinum_ore",
+          "weight": 6
+        },
+        {
+          "type": "minecraft:item",
+          "name": "alltheores:ruby_ore",
+          "weight": 6
+        },
+        {
+          "type": "minecraft:item",
+          "name": "alltheores:sapphire_ore",
+          "weight": 6
+        },
+        {
+          "type": "minecraft:item",
+          "name": "alltheores:peridot_ore",
+          "weight": 6
+        },
+        {
+          "type": "minecraft:item",
+          "name": "alltheores:iridium_ore",
+          "weight": 4
+        },
+        {
+          "type": "minecraft:item",
+          "name": "occultism:iesnium_ore",
+          "weight": 4
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:ancient_debris",
+          "weight": 2
+        }
+      ]
+    }
+  ]
+}

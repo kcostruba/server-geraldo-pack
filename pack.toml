@@ -1,0 +1,13 @@
+name = "Server Geraldo"
+author = "Kaue"
+version = "1.0.0"
+pack-format = "packwiz:1.1.0"
+
+[index]
+file = "index.toml"
+hash-format = "sha256"
+hash = "2e06d37c4d13f3547d5af107a6b5b99910db856f996764acb91db99bedd92ab5"
+
+[versions]
+minecraft = "1.21.1"
+neoforge = "21.1.251"

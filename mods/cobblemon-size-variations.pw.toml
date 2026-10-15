@@ -1,0 +1,13 @@
+filename = "CobblemonSizeVariationNeoforge-1.4.0+1.7.0.jar"
+name = "Cobblemon Size Variations"
+side = "both"
+
+[download]
+hash = "e3702828b56177d12fb15e8ea8ee2957b8f0e850b50a7f55849cfdff65930720629cc9147fbc7aa90fa6450db803b89017d314fe0c2f7a171a25abf88e5fc242"
+hash-format = "sha512"
+mode = "url"
+url = "https://cdn.modrinth.com/data/bMdS1gMo/versions/kg0mJPYU/CobblemonSizeVariationNeoforge-1.4.0%2B1.7.0.jar"
+
+[update.modrinth]
+mod-id = "bMdS1gMo"
+version = "kg0mJPYU"

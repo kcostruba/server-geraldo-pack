@@ -1,0 +1,14 @@
+// Ovo Pokémon da reproducao no Pasture (server_scripts/reproducao_pasture.js)
+
+StartupEvents.registry('item', event => {
+  // os dados do filhote (especie, IVs, natureza...) ficam no custom_data do proprio item
+  event.create('geraldo:ovo_pokemon')
+    .displayName('Ovo Pokémon')
+    .texture('minecraft:item/egg')
+    .unstackable()
+
+  // sai da Garden Cloche quando o ovo termina de chocar; o script troca pelo Pokémon
+  event.create('geraldo:casca_de_ovo')
+    .displayName('Casca de Ovo')
+    .texture('minecraft:item/bone_meal')
+})

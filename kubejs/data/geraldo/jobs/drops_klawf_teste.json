@@ -1,0 +1,21 @@
+{
+  "id": "geraldo:drops_klawf_teste",
+  "cooldown": 10,
+  "cooldown_scope": "PER_ENTITY",
+  "requirements": {
+    "species": [
+      "klawf"
+    ],
+    "aspects": [
+      "geraldo_fazenda_teste"
+    ]
+  },
+  "components": [
+    {
+      "type": "cobbleworkers:loot_generation",
+      "loot_tables": [
+        "geraldo:pokemon_drops_pasto/klawf"
+      ]
+    }
+  ]
+}

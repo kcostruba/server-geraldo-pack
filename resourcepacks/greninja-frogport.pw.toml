@@ -1,0 +1,13 @@
+filename = "Create_Greninja_Frogport.zip"
+name = "Create/Cobblemon: Greninja Frogport"
+side = "client"
+
+[download]
+hash = "92d3e37fefcc6451449b3545def51cfd7cbda3d2a35dc9da7856a2bca53a6aae4d4e86bac0e2b6d11e242517b5c7e24dec842392460f4f5304743a238a8ad5bd"
+hash-format = "sha512"
+mode = "url"
+url = "https://cdn.modrinth.com/data/sACzoN2c/versions/FjtPRvqY/Create_Greninja_Frogport.zip"
+
+[update.modrinth]
+mod-id = "sACzoN2c"
+version = "FjtPRvqY"

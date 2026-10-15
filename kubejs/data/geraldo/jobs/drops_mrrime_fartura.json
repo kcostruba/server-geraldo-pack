@@ -1,0 +1,22 @@
+{
+  "id": "geraldo:drops_mrrime_fartura",
+  "cooldown": 300,
+  "cooldown_scope": "PER_ENTITY",
+  "requirements": {
+    "species": [
+      "mr. rime",
+      "mrrime"
+    ],
+    "aspects": [
+      "geraldo_fazenda_fartura"
+    ]
+  },
+  "components": [
+    {
+      "type": "cobbleworkers:loot_generation",
+      "loot_tables": [
+        "geraldo:pokemon_drops_pasto/mrrime_fartura"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "id": "geraldo:drops_turtwig",
+  "cooldown": 300,
+  "cooldown_scope": "PER_ENTITY",
+  "requirements": {
+    "species": [
+      "turtwig"
+    ],
+    "aspects": [
+      "geraldo_fazenda"
+    ]
+  },
+  "components": [
+    {
+      "type": "cobbleworkers:loot_generation",
+      "loot_tables": [
+        "geraldo:pokemon_drops_pasto/turtwig"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "id": "geraldo:drops_impidimp_fartura",
+  "cooldown": 300,
+  "cooldown_scope": "PER_ENTITY",
+  "requirements": {
+    "species": [
+      "impidimp"
+    ],
+    "aspects": [
+      "geraldo_fazenda_fartura"
+    ]
+  },
+  "components": [
+    {
+      "type": "cobbleworkers:loot_generation",
+      "loot_tables": [
+        "geraldo:pokemon_drops_pasto/impidimp_fartura"
+      ]
+    }
+  ]
+}

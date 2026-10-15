@@ -1,0 +1,21 @@
+{
+  "id": "geraldo:drops_umbreon_sorte",
+  "cooldown": 300,
+  "cooldown_scope": "PER_ENTITY",
+  "requirements": {
+    "species": [
+      "umbreon"
+    ],
+    "aspects": [
+      "geraldo_fazenda_sorte"
+    ]
+  },
+  "components": [
+    {
+      "type": "cobbleworkers:loot_generation",
+      "loot_tables": [
+        "geraldo:pokemon_drops_pasto/umbreon_sorte"
+      ]
+    }
+  ]
+}

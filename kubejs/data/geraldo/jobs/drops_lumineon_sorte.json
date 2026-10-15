@@ -1,0 +1,21 @@
+{
+  "id": "geraldo:drops_lumineon_sorte",
+  "cooldown": 300,
+  "cooldown_scope": "PER_ENTITY",
+  "requirements": {
+    "species": [
+      "lumineon"
+    ],
+    "aspects": [
+      "geraldo_fazenda_sorte"
+    ]
+  },
+  "components": [
+    {
+      "type": "cobbleworkers:loot_generation",
+      "loot_tables": [
+        "geraldo:pokemon_drops_pasto/lumineon_sorte"
+      ]
+    }
+  ]
+}

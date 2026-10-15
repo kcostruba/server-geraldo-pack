@@ -1,0 +1,80 @@
+{
+  "type": "minecraft:chest",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "occultism:otherworld_ashes",
+          "weight": 30,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "type": "minecraft:uniform",
+                "min": 1,
+                "max": 3
+              }
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "occultism:datura",
+          "weight": 20,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "type": "minecraft:uniform",
+                "min": 1,
+                "max": 2
+              }
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "occultism:purified_ink",
+          "weight": 15,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "type": "minecraft:uniform",
+                "min": 1,
+                "max": 2
+              }
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "occultism:cursed_honey",
+          "weight": 8
+        },
+        {
+          "type": "minecraft:item",
+          "name": "occultism:demons_dream_essence",
+          "weight": 10
+        },
+        {
+          "type": "minecraft:item",
+          "name": "occultism:otherworld_essence",
+          "weight": 10
+        },
+        {
+          "type": "minecraft:item",
+          "name": "occultism:spirit_attuned_crystal",
+          "weight": 5
+        },
+        {
+          "type": "minecraft:item",
+          "name": "occultism:awakened_feather",
+          "weight": 2
+        }
+      ]
+    }
+  ]
+}

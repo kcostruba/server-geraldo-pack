@@ -1,0 +1,21 @@
+{
+  "id": "geraldo:drops_voltorb",
+  "cooldown": 300,
+  "cooldown_scope": "PER_ENTITY",
+  "requirements": {
+    "species": [
+      "voltorb"
+    ],
+    "aspects": [
+      "geraldo_fazenda"
+    ]
+  },
+  "components": [
+    {
+      "type": "cobbleworkers:loot_generation",
+      "loot_tables": [
+        "geraldo:pokemon_drops_pasto/voltorb"
+      ]
+    }
+  ]
+}

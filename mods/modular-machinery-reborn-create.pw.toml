@@ -1,0 +1,13 @@
+filename = "mmrcreate-0.1.1.jar"
+name = "Modular Machinery Reborn Create"
+side = "both"
+
+[download]
+hash = "9d68b7a2d017b54b02984ce00b1ff2d8580403e3f01de447b7fb50d2a67e6653d67dfe21e358bdf63885b514de6e97eb875a0515860968f70e9ff37bbcda30cc"
+hash-format = "sha512"
+mode = "url"
+url = "https://cdn.modrinth.com/data/cg3NUlSF/versions/ULRjzRlu/mmrcreate-0.1.1.jar"
+
+[update.modrinth]
+mod-id = "cg3NUlSF"
+version = "ULRjzRlu"

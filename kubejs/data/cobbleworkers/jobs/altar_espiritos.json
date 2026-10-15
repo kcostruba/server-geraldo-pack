@@ -1,0 +1,22 @@
+{
+  "id": "cobbleworkers:altar_espiritos",
+  "cooldown": 300,
+  "cooldown_scope": "PER_ENTITY",
+  "requirements": {
+    "types": ["ghost"]
+  },
+  "components": [
+    {
+      "type": "cobbleworkers:navigation",
+      "target": {
+        "block": "occultism:sacrificial_bowl"
+      }
+    },
+    {
+      "type": "cobbleworkers:loot_generation",
+      "loot_tables": [
+        "geraldo:altar/espiritos"
+      ]
+    }
+  ]
+}

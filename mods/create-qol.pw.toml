@@ -1,0 +1,13 @@
+filename = "Create Quality of Life-1.21.1-1.6.3-fix1.jar"
+name = "Create: Quality of Life"
+side = "both"
+
+[download]
+hash = "faf6d027c4516ea091ab942c142d4ad3aa174b7a15d5614ddbc6be2256c50612f250b4f2c8f9286c69c4281d1e7acd5d25de803365213b2417b2ba666a085abf"
+hash-format = "sha512"
+mode = "url"
+url = "https://cdn.modrinth.com/data/hezpkOYP/versions/S6xZzbRg/Create Quality of Life-1.21.1-1.6.3-fix1.jar"
+
+[update.modrinth]
+mod-id = "hezpkOYP"
+version = "S6xZzbRg"

@@ -1,0 +1,13 @@
+filename = "TMTCEIC 1.21.1 NF-3.0.0.jar"
+name = "Tomtaru's Cobblemon & Immersive Engineering Tweaks"
+side = "both"
+
+[download]
+hash = "19cfbb0ddd15eee348e61cfd207e6aa02e2d9440"
+hash-format = "sha1"
+mode = "url"
+url = "https://mediafilez.forgecdn.net/files/8577/991/TMTCEIC%201.21.1%20NF-3.0.0.jar"
+
+[update.curseforge]
+file-id = 8577991
+project-id = 853156

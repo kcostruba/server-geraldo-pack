@@ -1,0 +1,16 @@
+{
+  "replace": false,
+  "values": [
+    "rechiseled:blackstone_brick_pattern",
+    "rechiseled:blackstone_brick_pattern_connecting",
+    "rechiseled:blackstone_brick_paving",
+    "rechiseled:blackstone_brick_paving_connecting",
+    "rechiseled:blackstone_diagonal_bricks",
+    "rechiseled:blackstone_diagonal_bricks_connecting",
+    "rechiseled:blackstone_polished_connecting",
+    "rechiseled:blackstone_tiles",
+    "rechiseled:blackstone_tiles_connecting",
+    "rechiseled:blackstone_rotated_bricks",
+    "rechiseled:blackstone_rotated_bricks_connecting"
+  ]
+}

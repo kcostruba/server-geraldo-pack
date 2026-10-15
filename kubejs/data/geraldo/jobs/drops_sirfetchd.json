@@ -1,0 +1,22 @@
+{
+  "id": "geraldo:drops_sirfetchd",
+  "cooldown": 300,
+  "cooldown_scope": "PER_ENTITY",
+  "requirements": {
+    "species": [
+      "sirfetchd",
+      "sirfetch\u2019d"
+    ],
+    "aspects": [
+      "geraldo_fazenda"
+    ]
+  },
+  "components": [
+    {
+      "type": "cobbleworkers:loot_generation",
+      "loot_tables": [
+        "geraldo:pokemon_drops_pasto/sirfetchd"
+      ]
+    }
+  ]
+}

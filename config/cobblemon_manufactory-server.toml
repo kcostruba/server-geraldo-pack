@@ -1,0 +1,2 @@
+#Whether to remove pokeball crafting recipes from Create mod's Mechanical Crafter.
+remove_mechanical_crafter_recipes = true

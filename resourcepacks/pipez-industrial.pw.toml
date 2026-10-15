@@ -1,0 +1,13 @@
+filename = "Pipez Industrial.zip"
+name = "Pipez Industrial"
+side = "client"
+
+[download]
+hash = "0cbdb7b4b9588b6aa6bcefb5d66372806b920ecafb9a883865b36f514410b8e5bfb28da4d6de7a4f0d8938483ed7c5ad00403b5f8166075f0603cac5478b22d3"
+hash-format = "sha512"
+mode = "url"
+url = "https://cdn.modrinth.com/data/yIxlhjgJ/versions/ItBLf3RG/Pipez Industrial.zip"
+
+[update.modrinth]
+mod-id = "yIxlhjgJ"
+version = "ItBLf3RG"

@@ -1,0 +1,21 @@
+{
+  "id": "geraldo:drops_grimer_fartura",
+  "cooldown": 300,
+  "cooldown_scope": "PER_ENTITY",
+  "requirements": {
+    "species": [
+      "grimer"
+    ],
+    "aspects": [
+      "geraldo_fazenda_fartura"
+    ]
+  },
+  "components": [
+    {
+      "type": "cobbleworkers:loot_generation",
+      "loot_tables": [
+        "geraldo:pokemon_drops_pasto/grimer_fartura"
+      ]
+    }
+  ]
+}

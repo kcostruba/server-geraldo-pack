@@ -1,0 +1,13 @@
+filename = "FF-1.21.1-beta-0.2.1.jar"
+name = "Fabulous Furniture (Java)"
+side = "both"
+
+[download]
+hash = "372ab78f5052260b01bbedb340f9495e61b5712d9195b9eb285b6f9658e8c910bfec723d04a1f065dff811003bbdc567b57ceaf92531570107b25ce31bc42f30"
+hash-format = "sha512"
+mode = "url"
+url = "https://cdn.modrinth.com/data/kOcpQwau/versions/q1Uq6jPv/FF-1.21.1-beta-0.2.1.jar"
+
+[update.modrinth]
+mod-id = "kOcpQwau"
+version = "q1Uq6jPv"

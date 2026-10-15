@@ -1,0 +1,19 @@
+{
+  "type": "immersiveengineering:cloche",
+  "input": {
+    "item": "geraldo:ovo_pokemon"
+  },
+  "render": {
+    "type": "immersiveengineering:generic",
+    "block": "minecraft:sniffer_egg"
+  },
+  "results": [
+    {
+      "id": "geraldo:casca_de_ovo"
+    }
+  ],
+  "soil": {
+    "item": "minecraft:hay_block"
+  },
+  "time": 4800
+}

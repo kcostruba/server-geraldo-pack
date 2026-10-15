@@ -1,0 +1,22 @@
+{
+  "replace": false,
+  "values": [
+    "rechiseled:basalt_beams",
+    "rechiseled:basalt_beams_connecting",
+    "rechiseled:basalt_bordered",
+    "rechiseled:basalt_bordered_connecting",
+    "rechiseled:basalt_bordered_polished",
+    "rechiseled:basalt_bordered_polished_connecting",
+    "rechiseled:basalt_bricks",
+    "rechiseled:basalt_bricks_connecting",
+    "rechiseled:basalt_chiseled_piglin",
+    "rechiseled:basalt_diagonal_tiles",
+    "rechiseled:basalt_diagonal_tiles_connecting",
+    "rechiseled:basalt_pattern",
+    "rechiseled:basalt_pattern_connecting",
+    "rechiseled:basalt_patterned",
+    "rechiseled:basalt_patterned_connecting",
+    "rechiseled:basalt_tiles",
+    "rechiseled:basalt_tiles_connecting"
+  ]
+}

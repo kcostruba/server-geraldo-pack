@@ -1,0 +1,22 @@
+{
+  "id": "geraldo:drops_nidoranm",
+  "cooldown": 300,
+  "cooldown_scope": "PER_ENTITY",
+  "requirements": {
+    "species": [
+      "nidoran-m",
+      "nidoranm"
+    ],
+    "aspects": [
+      "geraldo_fazenda"
+    ]
+  },
+  "components": [
+    {
+      "type": "cobbleworkers:loot_generation",
+      "loot_tables": [
+        "geraldo:pokemon_drops_pasto/nidoranm"
+      ]
+    }
+  ]
+}

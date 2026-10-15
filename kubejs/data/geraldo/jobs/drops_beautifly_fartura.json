@@ -1,0 +1,21 @@
+{
+  "id": "geraldo:drops_beautifly_fartura",
+  "cooldown": 300,
+  "cooldown_scope": "PER_ENTITY",
+  "requirements": {
+    "species": [
+      "beautifly"
+    ],
+    "aspects": [
+      "geraldo_fazenda_fartura"
+    ]
+  },
+  "components": [
+    {
+      "type": "cobbleworkers:loot_generation",
+      "loot_tables": [
+        "geraldo:pokemon_drops_pasto/beautifly_fartura"
+      ]
+    }
+  ]
+}

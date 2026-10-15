@@ -1,0 +1,13 @@
+filename = "ars_unification-1.2.21.jar"
+name = "Ars Unification"
+side = "both"
+
+[download]
+hash = "1cde0f42871f4205d001eddca27ff930fa447a60"
+hash-format = "sha1"
+mode = "url"
+url = "https://mediafilez.forgecdn.net/files/8784/791/ars_unification-1.2.21.jar"
+
+[update.curseforge]
+file-id = 8784791
+project-id = 1165429

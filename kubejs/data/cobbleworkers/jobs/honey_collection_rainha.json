@@ -1,0 +1,31 @@
+{
+  "id": "cobbleworkers:honey_collection_rainha",
+  "cooldown": 0,
+  "cooldown_scope": "PER_ENTITY",
+  "requirements": {
+    "species": ["vespiquen"]
+  },
+  "components": [
+    {
+      "type": "cobbleworkers:navigation",
+      "target": {
+        "block": "#minecraft:beehives",
+        "properties": {
+          "honey_level": "max"
+        }
+      }
+    },
+    {
+      "type": "cobbleworkers:loot_generation",
+      "loot_tables": [
+        "geraldo:colmeia/rainha"
+      ]
+    },
+    {
+      "type": "cobbleworkers:mutate_property",
+      "mutations": {
+        "honey_level": 0
+      }
+    }
+  ]
+}

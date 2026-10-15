@@ -1,0 +1,21 @@
+{
+  "id": "geraldo:drops_spidops_rapido",
+  "cooldown": 300,
+  "cooldown_scope": "PER_ENTITY",
+  "requirements": {
+    "species": [
+      "spidops"
+    ],
+    "aspects": [
+      "geraldo_fazenda_rapido"
+    ]
+  },
+  "components": [
+    {
+      "type": "cobbleworkers:loot_generation",
+      "loot_tables": [
+        "geraldo:pokemon_drops_pasto/spidops"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "id": "geraldo:drops_sizzlipede_teste",
+  "cooldown": 10,
+  "cooldown_scope": "PER_ENTITY",
+  "requirements": {
+    "species": [
+      "sizzlipede"
+    ],
+    "aspects": [
+      "geraldo_fazenda_teste"
+    ]
+  },
+  "components": [
+    {
+      "type": "cobbleworkers:loot_generation",
+      "loot_tables": [
+        "geraldo:pokemon_drops_pasto/sizzlipede"
+      ]
+    }
+  ]
+}

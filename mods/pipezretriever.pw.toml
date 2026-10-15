@@ -1,0 +1,13 @@
+filename = "pipezretriever-0.0.1.jar"
+name = "PipezRetriever"
+side = "both"
+
+[download]
+hash = "4ec6e672687687039e31d7a998fdb4d1f630302eef0bf9d57afafde92ae68bead6ebe586f54ef8745a21d406d665bdae94698e1b3502c306281ad2c6940512bc"
+hash-format = "sha512"
+mode = "url"
+url = "https://cdn.modrinth.com/data/3qzhQ0uL/versions/A9xz8pb7/pipezretriever-0.0.1.jar"
+
+[update.modrinth]
+mod-id = "3qzhQ0uL"
+version = "A9xz8pb7"

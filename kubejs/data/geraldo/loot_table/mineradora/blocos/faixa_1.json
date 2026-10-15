@@ -1,0 +1,49 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:coal_ore",
+          "weight": 30
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:iron_ore",
+          "weight": 25
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:copper_ore",
+          "weight": 25
+        },
+        {
+          "type": "minecraft:item",
+          "name": "alltheores:tin_ore",
+          "weight": 15
+        },
+        {
+          "type": "minecraft:item",
+          "name": "create:zinc_ore",
+          "weight": 15
+        },
+        {
+          "type": "minecraft:item",
+          "name": "alltheores:lead_ore",
+          "weight": 12
+        },
+        {
+          "type": "minecraft:item",
+          "name": "alltheores:salt_ore",
+          "weight": 8
+        },
+        {
+          "type": "minecraft:item",
+          "name": "alltheores:sulfur_ore",
+          "weight": 6
+        }
+      ]
+    }
+  ]
+}

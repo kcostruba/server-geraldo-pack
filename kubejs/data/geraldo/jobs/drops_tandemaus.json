@@ -1,0 +1,21 @@
+{
+  "id": "geraldo:drops_tandemaus",
+  "cooldown": 300,
+  "cooldown_scope": "PER_ENTITY",
+  "requirements": {
+    "species": [
+      "tandemaus"
+    ],
+    "aspects": [
+      "geraldo_fazenda"
+    ]
+  },
+  "components": [
+    {
+      "type": "cobbleworkers:loot_generation",
+      "loot_tables": [
+        "geraldo:pokemon_drops_pasto/tandemaus"
+      ]
+    }
+  ]
+}

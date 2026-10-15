@@ -1,0 +1,22 @@
+{
+  "id": "geraldo:drops_fluttermane_rapido",
+  "cooldown": 300,
+  "cooldown_scope": "PER_ENTITY",
+  "requirements": {
+    "species": [
+      "flutter mane",
+      "fluttermane"
+    ],
+    "aspects": [
+      "geraldo_fazenda_rapido"
+    ]
+  },
+  "components": [
+    {
+      "type": "cobbleworkers:loot_generation",
+      "loot_tables": [
+        "geraldo:pokemon_drops_pasto/fluttermane"
+      ]
+    }
+  ]
+}

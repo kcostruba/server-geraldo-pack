@@ -1,0 +1,22 @@
+{
+  "id": "geraldo:drops_mimejr",
+  "cooldown": 300,
+  "cooldown_scope": "PER_ENTITY",
+  "requirements": {
+    "species": [
+      "mime jr.",
+      "mimejr"
+    ],
+    "aspects": [
+      "geraldo_fazenda"
+    ]
+  },
+  "components": [
+    {
+      "type": "cobbleworkers:loot_generation",
+      "loot_tables": [
+        "geraldo:pokemon_drops_pasto/mimejr"
+      ]
+    }
+  ]
+}

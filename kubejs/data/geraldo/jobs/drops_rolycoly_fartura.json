@@ -1,0 +1,21 @@
+{
+  "id": "geraldo:drops_rolycoly_fartura",
+  "cooldown": 300,
+  "cooldown_scope": "PER_ENTITY",
+  "requirements": {
+    "species": [
+      "rolycoly"
+    ],
+    "aspects": [
+      "geraldo_fazenda_fartura"
+    ]
+  },
+  "components": [
+    {
+      "type": "cobbleworkers:loot_generation",
+      "loot_tables": [
+        "geraldo:pokemon_drops_pasto/rolycoly_fartura"
+      ]
+    }
+  ]
+}

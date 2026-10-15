@@ -1,0 +1,13 @@
+filename = "AFKStation-v6.0.0-NeoForge+mc1.21.1.jar"
+name = "AFK Station [Cinematic & More]"
+side = "client"
+
+[download]
+hash = "c16c5439462f7ee846d0dec69aa43afac325a3bc24d86c09f23ecc82cd9a514f7dc153e3701dabec4cf5014d5339fb5b98a94e77080893c8b0c841eec3f860be"
+hash-format = "sha512"
+mode = "url"
+url = "https://cdn.modrinth.com/data/tKnIRAKk/versions/38IPNodW/AFKStation-v6.0.0-NeoForge%2Bmc1.21.1.jar"
+
+[update.modrinth]
+mod-id = "tKnIRAKk"
+version = "38IPNodW"

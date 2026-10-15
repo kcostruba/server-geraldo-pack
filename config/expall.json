@@ -1,0 +1,12 @@
+{
+  "expSharePercentage": 0.5,
+  "shareEvs": true,
+  "catchingCharmMultiplier": 1.0,
+  "expCharmMultiplier": 1.0,
+  "shinyCharmMultiplier": 1.0,
+  "markCharmMultiplier": 1.0,
+  "ovalCharmMultiplier": 1.0,
+  "glimmeringCharmShardChanceMultiplier": 1.0,
+  "glimmeringCharmStellarChanceMultiplier": 1.0,
+  "glimmeringCharmShardQuantityMultiplier": 1.0
+}

@@ -1,0 +1,129 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:coal",
+          "weight": 30
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:raw_iron",
+          "weight": 25
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:raw_copper",
+          "weight": 25,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "type": "minecraft:uniform",
+                "min": 2,
+                "max": 5
+              }
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "alltheores:raw_tin",
+          "weight": 15
+        },
+        {
+          "type": "minecraft:item",
+          "name": "create:raw_zinc",
+          "weight": 15
+        },
+        {
+          "type": "minecraft:item",
+          "name": "alltheores:raw_lead",
+          "weight": 12
+        },
+        {
+          "type": "minecraft:item",
+          "name": "alltheores:salt",
+          "weight": 8
+        },
+        {
+          "type": "minecraft:item",
+          "name": "alltheores:sulfur",
+          "weight": 6
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:raw_gold",
+          "weight": 10
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:redstone",
+          "weight": 12,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "type": "minecraft:uniform",
+                "min": 4,
+                "max": 5
+              }
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:lapis_lazuli",
+          "weight": 8,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "type": "minecraft:uniform",
+                "min": 4,
+                "max": 9
+              }
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:quartz",
+          "weight": 10
+        },
+        {
+          "type": "minecraft:item",
+          "name": "alltheores:raw_silver",
+          "weight": 8
+        },
+        {
+          "type": "minecraft:item",
+          "name": "alltheores:raw_nickel",
+          "weight": 8
+        },
+        {
+          "type": "minecraft:item",
+          "name": "alltheores:raw_aluminum",
+          "weight": 10
+        },
+        {
+          "type": "minecraft:item",
+          "name": "alltheores:fluorite",
+          "weight": 5
+        },
+        {
+          "type": "minecraft:item",
+          "name": "alltheores:cinnabar",
+          "weight": 5
+        },
+        {
+          "type": "minecraft:item",
+          "name": "tfmg:raw_lithium",
+          "weight": 4
+        }
+      ]
+    }
+  ]
+}

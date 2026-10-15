@@ -1,0 +1,28 @@
+#Enable or disable PC Upgrade
+EnablePcUpgrade = true
+#Enables or disables the Campfire Pot Upgrade
+EnableCampfirePotUpgrade = true
+
+[HealUpgrade]
+	EnableHealUpgrade = true
+	EnableHealCooldown = true
+	#Recharge time in seconds
+	# Default: 150
+	# Range: > 0
+	HealCooldown = 150
+
+	[HealUpgrade.HealUpgradeTier]
+		EnableUpgradeTiers = true
+		#Percentage reduction in time
+		# Default: 20
+		# Range: 0 ~ 100
+		ReduceTimeToHealTier1 = 20
+		# Default: 40
+		# Range: 0 ~ 100
+		ReduceTimeToHealTier2 = 40
+		# Default: 60
+		# Range: 0 ~ 100
+		ReduceTimeToHealTier3 = 60
+		# Default: 80
+		# Range: 0 ~ 100
+		ReduceTimeToHealTier4 = 80

@@ -1,0 +1,79 @@
+{
+    "globalBookmarks": {
+        "armorer": [],
+        "butcher": [],
+        "cartographer": [],
+        "cleric": [],
+        "farmer": [
+            {
+                "resultItem": "farm_and_charm:barley",
+                "priceItem1": "minecraft:emerald"
+            }
+        ],
+        "fisherman": [],
+        "fletcher": [],
+        "leatherworker": [],
+        "librarian": [
+            {
+                "resultItem": "minecraft:enchanted_book",
+                "priceItem1": "minecraft:emerald",
+                "priceItem2": "minecraft:book",
+                "resultItemNBT": "{components:{\"minecraft:stored_enchantments\":{levels:{\"minecraft:fortune\":3}}}}"
+            }
+        ],
+        "mason": [],
+        "shepherd": [],
+        "toolsmith": [],
+        "weaponsmith": [],
+        "nitwit": [],
+        "none": [],
+        "cobblemon:nurse": [],
+        "___+++___ wandering ___+++___": []
+    },
+    "localBookmarks": {
+        "733fc92e-8773-47d0-8ec3-96b0a8231be3": [
+            {
+                "resultItem": "farm_and_charm:barley",
+                "priceItem1": "minecraft:emerald"
+            }
+        ]
+    },
+    "globalBookmarks1": {
+        "armorer": [],
+        "butcher": [],
+        "cartographer": [],
+        "cleric": [],
+        "farmer": [],
+        "fisherman": [],
+        "fletcher": [],
+        "leatherworker": [],
+        "librarian": [],
+        "mason": [],
+        "shepherd": [],
+        "toolsmith": [],
+        "weaponsmith": [],
+        "nitwit": [],
+        "none": [],
+        "cobblemon:nurse": [],
+        "___+++___ wandering ___+++___": []
+    },
+    "globalBookmarks2": {
+        "armorer": [],
+        "butcher": [],
+        "cartographer": [],
+        "cleric": [],
+        "farmer": [],
+        "fisherman": [],
+        "fletcher": [],
+        "leatherworker": [],
+        "librarian": [],
+        "mason": [],
+        "shepherd": [],
+        "toolsmith": [],
+        "weaponsmith": [],
+        "nitwit": [],
+        "none": [],
+        "cobblemon:nurse": [],
+        "___+++___ wandering ___+++___": []
+    }
+}

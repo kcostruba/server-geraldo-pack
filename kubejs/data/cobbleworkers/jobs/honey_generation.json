@@ -1,0 +1,25 @@
+{
+  "id": "cobbleworkers:honey_generation",
+  "cooldown": 120,
+  "cooldown_scope": "PER_ENTITY",
+  "requirements": {
+    "species": ["beedrill", "combee", "vespiquen", "cutiefly", "ribombee"]
+  },
+  "components": [
+    {
+      "type": "cobbleworkers:navigation",
+      "target": {
+        "block": "#minecraft:beehives",
+        "properties": {
+          "honey_level": { "between": [0, 4] }
+        }
+      }
+    },
+    {
+      "type": "cobbleworkers:mutate_property",
+      "mutations": {
+        "honey_level": "+"
+      }
+    }
+  ]
+}

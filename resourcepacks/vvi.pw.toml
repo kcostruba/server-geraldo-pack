@@ -1,0 +1,13 @@
+filename = "§a§lVocal Villagers §r§71.4.zip"
+name = "Vocal Villagers"
+side = "client"
+
+[download]
+hash = "eae2c0f3875d6402c3e60afb85a9dccec972a6709c94d4ee55ffea2912b1a6505a7a902bbbaa1c59631256aca9135a04aea853f9030901126ba434ee0c882e73"
+hash-format = "sha512"
+mode = "url"
+url = "https://cdn.modrinth.com/data/SEt2q8cl/versions/B0ExDjpO/§a§lVocal Villagers §r§71.4.zip"
+
+[update.modrinth]
+mod-id = "SEt2q8cl"
+version = "B0ExDjpO"

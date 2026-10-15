@@ -1,0 +1,21 @@
+{
+  "id": "geraldo:drops_dondozo_sorte",
+  "cooldown": 300,
+  "cooldown_scope": "PER_ENTITY",
+  "requirements": {
+    "species": [
+      "dondozo"
+    ],
+    "aspects": [
+      "geraldo_fazenda_sorte"
+    ]
+  },
+  "components": [
+    {
+      "type": "cobbleworkers:loot_generation",
+      "loot_tables": [
+        "geraldo:pokemon_drops_pasto/dondozo_sorte"
+      ]
+    }
+  ]
+}

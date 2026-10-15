@@ -1,0 +1,13 @@
+filename = "expall-neoforge-1.0.8.jar"
+name = "Cobblemon Exp. All"
+side = "both"
+
+[download]
+hash = "69bd25e213edb8fca2bc9df09c78e4ad9a40d7909460907c78457fa33ce361f0614e70747c0e6b2b28b01e71318527ae134f25646778ecf1378d7bf59408af66"
+hash-format = "sha512"
+mode = "url"
+url = "https://cdn.modrinth.com/data/56IRzrQd/versions/jbm4xpVw/expall-neoforge-1.0.8.jar"
+
+[update.modrinth]
+mod-id = "56IRzrQd"
+version = "jbm4xpVw"

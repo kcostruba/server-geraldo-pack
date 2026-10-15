@@ -1,0 +1,13 @@
+filename = "Vibrant Balls.zip"
+name = "Cobblemon: Vibrant Balls"
+side = "client"
+
+[download]
+hash = "53a5f46d42b8841d65fb0368eb6c57c2f43bdc4adf9017e94ddb627dd5e4b8b8f0591da1ae8a30a51e046da634b0814e199399db96065ac8cafc2cfb5f7e8ac4"
+hash-format = "sha512"
+mode = "url"
+url = "https://cdn.modrinth.com/data/B4Gpa0MA/versions/zSj6CQKN/Vibrant Balls.zip"
+
+[update.modrinth]
+mod-id = "B4Gpa0MA"
+version = "zSj6CQKN"

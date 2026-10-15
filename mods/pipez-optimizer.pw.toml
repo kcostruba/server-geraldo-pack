@@ -1,0 +1,13 @@
+filename = "pipez_optimizer-1.0.13-1.21.1.jar"
+name = "Pipez Optimizer"
+side = "both"
+
+[download]
+hash = "506d44a68bb627a6ab0b1822ee863a8ea572215050eb6d208ddb6caa9eaac4f78bf189eaf26780fc35064f7f592329d63246beaa8d597be7289968832ea721c4"
+hash-format = "sha512"
+mode = "url"
+url = "https://cdn.modrinth.com/data/HVAFkCTk/versions/ACYQXlfE/pipez_optimizer-1.0.13-1.21.1.jar"
+
+[update.modrinth]
+mod-id = "HVAFkCTk"
+version = "ACYQXlfE"

@@ -1,0 +1,13 @@
+filename = "[Chilli´s] punchy- cobblemon.zip"
+name = "[Chilli's] Punchy! Cobblemon"
+side = "client"
+
+[download]
+hash = "ff794060f70bf870733864d775dfa935a3859fedf551cae9cc4b136b9e507f246d9b48bccf43d4f7a7df2609646b585779b3c9080a2873a025b05803964c8dad"
+hash-format = "sha512"
+mode = "url"
+url = "https://cdn.modrinth.com/data/5sRSLTlC/versions/ibKS2oz3/%5BChilli´s%5D punchy%21 cobblemon.zip"
+
+[update.modrinth]
+mod-id = "5sRSLTlC"
+version = "ibKS2oz3"

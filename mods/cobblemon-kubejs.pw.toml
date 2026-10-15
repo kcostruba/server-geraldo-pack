@@ -1,0 +1,13 @@
+filename = "cobblemon_kubejs-neoforge-1.0.2.jar"
+name = "Cobblemon KubeJS"
+side = "both"
+
+[download]
+hash = "3d27c01a661126bc455a0efa8cbd8c4b4f5702b1816f7c77d5c8423ee76a7d4f168be51f7e6a9b319a4d58bf06d7d4bbdec1a9123c293ab25025476496a00959"
+hash-format = "sha512"
+mode = "url"
+url = "https://cdn.modrinth.com/data/2YFzZT32/versions/VilnO2Wh/cobblemon_kubejs-neoforge-1.0.2.jar"
+
+[update.modrinth]
+mod-id = "2YFzZT32"
+version = "VilnO2Wh"

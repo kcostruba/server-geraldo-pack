@@ -1,0 +1,21 @@
+{
+  "id": "geraldo:drops_sharpedo_teste",
+  "cooldown": 10,
+  "cooldown_scope": "PER_ENTITY",
+  "requirements": {
+    "species": [
+      "sharpedo"
+    ],
+    "aspects": [
+      "geraldo_fazenda_teste"
+    ]
+  },
+  "components": [
+    {
+      "type": "cobbleworkers:loot_generation",
+      "loot_tables": [
+        "geraldo:pokemon_drops_pasto/sharpedo"
+      ]
+    }
+  ]
+}

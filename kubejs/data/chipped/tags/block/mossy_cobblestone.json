@@ -1,0 +1,21 @@
+{
+  "replace": false,
+  "values": [
+    "rechiseled:mossy_cobblestone_beams",
+    "rechiseled:mossy_cobblestone_beams_connecting",
+    "rechiseled:mossy_cobblestone_dented",
+    "rechiseled:mossy_cobblestone_dented_connecting",
+    "rechiseled:mossy_cobblestone_inverted_dented",
+    "rechiseled:mossy_cobblestone_inverted_dented_connecting",
+    "rechiseled:mossy_cobblestone_paving",
+    "rechiseled:mossy_cobblestone_paving_connecting",
+    "rechiseled:mossy_cobblestone_small_tiles",
+    "rechiseled:mossy_cobblestone_small_tiles_connecting",
+    "rechiseled:mossy_cobblestone_squares",
+    "rechiseled:mossy_cobblestone_squares_connecting",
+    "rechiseled:mossy_cobblestone_stripes",
+    "rechiseled:mossy_cobblestone_stripes_connecting",
+    "rechiseled:mossy_cobblestone_worn_stripes",
+    "rechiseled:mossy_cobblestone_worn_stripes_connecting"
+  ]
+}

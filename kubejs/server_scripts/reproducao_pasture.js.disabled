@@ -1,0 +1,369 @@
+// Reproducao no Pasture: pares compativeis no mesmo Pasture botam ovos num bau perto (ate 8 blocos).
+// So funciona com um fardo de feno embaixo do Pasture (modo ninho, ver modo_pasture.js).
+// Regras como nos jogos:
+//  - macho + femea com grupo de ovo em comum, ou Ditto + qualquer um (menos Ditto e Undiscovered)
+//  - o filhote e a forma mais basica da especie da mae (ou do parceiro do Ditto)
+//  - 3 IVs herdados dos pais (5 se um deles segura Destiny Knot); Everstone passa a natureza
+//  - mae com habilidade oculta: 60% de chance do filhote ter tambem
+//  - Pokebola da mae (Master/Cherish viram Poke Ball)
+//  - pais de treinadores diferentes: chance de ovo maior e shiny 6x mais comum (Masuda)
+// Chocar:
+//  - no inventario: o tempo passa sozinho (Flame Body / Magma Armor no time = 2x mais rapido); vai pro time
+//  - na Garden Cloche do IE (feno como solo): ovo no lugar da semente; quando termina vai pro PC do dono
+//    (receita em kubejs/data/geraldo/recipe/cloche/ovo_pokemon.json)
+
+// tudo dentro de uma funcao pra nenhum nome bater com outros scripts ou globais do KubeJS
+;(() => {
+  const CobblemonMod = Java.loadClass('com.cobblemon.mod.common.Cobblemon')
+  const PokemonProperties = Java.loadClass('com.cobblemon.mod.common.api.pokemon.PokemonProperties')
+  const Natures = Java.loadClass('com.cobblemon.mod.common.api.pokemon.Natures')
+  const PkStats = Java.loadClass('com.cobblemon.mod.common.api.pokemon.stats.Stats')
+  const Ability = Java.loadClass('com.cobblemon.mod.common.api.abilities.Ability')
+  const Priority = Java.loadClass('com.cobblemon.mod.common.api.Priority')
+  const HiddenAbility = Java.loadClass('com.cobblemon.mod.common.pokemon.abilities.HiddenAbility')
+  const PokemonEntityRep = Java.loadClass('com.cobblemon.mod.common.entity.pokemon.PokemonEntity')
+  const Cloche = Java.loadClass('blusunrize.immersiveengineering.common.blocks.metal.ClocheBlockEntity')
+  const DataComponents = Java.loadClass('net.minecraft.core.component.DataComponents')
+  const CustomData = Java.loadClass('net.minecraft.world.item.component.CustomData')
+  const ItemLore = Java.loadClass('net.minecraft.world.item.component.ItemLore')
+  const CompoundTag = Java.loadClass('net.minecraft.nbt.CompoundTag')
+  const ItemStackJ = Java.loadClass('net.minecraft.world.item.ItemStack')
+  const ArrayList = Java.loadClass('java.util.ArrayList')
+  const JUUID = Java.loadClass('java.util.UUID')
+  const BlockPosJ = Java.loadClass('net.minecraft.core.BlockPos')
+  const PastureBE = Java.loadClass('com.cobblemon.mod.common.block.entity.PokemonPastureBlockEntity')
+  const ItemCaps = Java.loadClass('net.neoforged.neoforge.capabilities.Capabilities$ItemHandler')
+  const ItemHandlerHelper = Java.loadClass('net.neoforged.neoforge.items.ItemHandlerHelper')
+
+  const OVO = 'geraldo:ovo_pokemon'
+  const CASCA = 'geraldo:casca_de_ovo'
+  const NINHO = 'minecraft:hay_block'  // bloco embaixo do Pasture que liga a reproducao
+
+  // Modo teste: ovo garantido a cada 10 s. Liga/desliga no jogo com /modoteste ovo on|off (modo_teste.js).
+  const modoTeste = server => server.persistentData.getBoolean('geraldo_modo_teste_ovo')
+  const intervaloReproducao = server => modoTeste(server) ? 200 : 1200 // ticks (1 min) entre tentativas
+  const CHANCE_MELHOR_POR_MIN = 0.1   // mesma especie + treinadores diferentes: ~1 ovo a cada 10 min
+  const BAU_RAIO = 8, BAU_ALTURA = 4  // bau a partir do bloco do Pasture
+  const BAU_IDS = /(chest|barrel|vault|crate|drawer|storage|shulker)/
+  const SEGUNDOS_POR_CICLO = 15       // eggCycles da especie x 15 s carregando no inventario (20 ciclos = 5 min)
+  const CHANCE_HABILIDADE_OCULTA = 0.6
+  const CLOCHE_INTERVALO = 40         // ticks entre verificacoes das Cloches perto dos jogadores
+  const CLOCHE_RAIO_CHUNKS = 3
+
+  const STATS = [PkStats.HP, PkStats.ATTACK, PkStats.DEFENCE, PkStats.SPECIAL_ATTACK, PkStats.SPECIAL_DEFENCE, PkStats.SPEED]
+  const STATS_NOME = ['HP', 'Atk', 'Def', 'SpA', 'SpD', 'Spe']
+
+  // ---------------------------------------------------------------- compatibilidade
+  const grupos = pokemon => {
+    const g = []
+    pokemon.species.eggGroups.forEach(e => g.push(String(e.name())))
+    return g
+  }
+  const ehDitto = pokemon => grupos(pokemon).indexOf('DITTO') >= 0
+  const genero = pokemon => String(pokemon.gender.name())
+
+  // devolve a mae (quem define a especie do filhote) ou null se o par nao pode reproduzir
+  const maeDoPar = (a, b) => {
+    const ga = grupos(a), gb = grupos(b)
+    if (ga.length == 0 || gb.length == 0 || ga.indexOf('UNDISCOVERED') >= 0 || gb.indexOf('UNDISCOVERED') >= 0) return null
+    const da = ehDitto(a), db = ehDitto(b)
+    if (da && db) return null
+    if (da) return b
+    if (db) return a
+    const xa = genero(a), xb = genero(b)
+    if (!((xa == 'MALE' && xb == 'FEMALE') || (xa == 'FEMALE' && xb == 'MALE'))) return null
+    if (!ga.some(g => gb.indexOf(g) >= 0)) return null
+    return xa == 'FEMALE' ? a : b
+  }
+
+  const treinadorDiferente = (a, b) => {
+    const ta = a.originalTrainer, tb = b.originalTrainer
+    return ta != null && tb != null && String(ta) != String(tb)
+  }
+
+  // mesma especie / treinadores diferentes, como nos jogos
+  const chanceDoPar = (a, b) => {
+    const mesma = String(a.species.name) == String(b.species.name) || ehDitto(a) || ehDitto(b)
+    const outroOT = treinadorDiferente(a, b)
+    if (mesma) return outroOT ? 0.7 : 0.5
+    return outroOT ? 0.5 : 0.2
+  }
+
+  // ---------------------------------------------------------------- filhote
+  const especieBase = species => {
+    let s = species
+    for (let i = 0; i < 5 && s.preEvolution != null; i++) s = s.preEvolution.species
+    return s
+  }
+
+  const templateOculta = species => {
+    try {
+      const it = species.abilities.iterator()
+      while (it.hasNext()) {
+        const pa = it.next()
+        if (pa instanceof HiddenAbility) return pa.template
+      }
+    } catch (e) { }
+    return null
+  }
+
+  const temOculta = pokemon => {
+    const t = templateOculta(pokemon.species)
+    return t != null && pokemon.ability != null && String(pokemon.ability.name) == String(t.name)
+  }
+
+  const segura = (pokemon, item) => pokemon.heldItem().id == item
+
+  const sortearDe = lista => lista[Math.floor(Math.random() * lista.length)]
+
+  const criarDadosOvo = (mae, pai, dono) => {
+    const base = especieBase(mae.species)
+    const d = new CompoundTag()
+    d.putString('especie', String(base.resourceIdentifier.path))
+    d.putString('nome', String(base.name))
+    d.putString('pais', `${mae.species.name} + ${pai.species.name}`)
+    d.putString('dono', String(dono))
+
+    // forma regional da mae, se o filhote tiver a mesma
+    const forma = String(mae.form.name)
+    base.forms.forEach(f => { if (String(f.name) == forma && forma != 'Normal') d.putString('forma', forma) })
+
+    // IVs: 3 (ou 5 com Destiny Knot) herdados de um dos pais, o resto aleatorio
+    const herdados = segura(mae, 'cobblemon:destiny_knot') || segura(pai, 'cobblemon:destiny_knot') ? 5 : 3
+    const ordem = [0, 1, 2, 3, 4, 5].sort(() => Math.random() - 0.5).slice(0, herdados)
+    for (let i = 0; i < 6; i++) {
+      d.putInt('iv' + i, ordem.indexOf(i) >= 0 ? sortearDe([mae, pai]).ivs.getOrDefault(STATS[i]) : Math.floor(Math.random() * 32))
+    }
+
+    // natureza: Everstone
+    const comPedra = [mae, pai].filter(p => segura(p, 'cobblemon:everstone'))
+    if (comPedra.length > 0) d.putString('natureza', String(sortearDe(comPedra).nature.name))
+
+    if (temOculta(mae) && Math.random() < CHANCE_HABILIDADE_OCULTA) d.putBoolean('oculta', true)
+
+    let bola = String(mae.caughtBall.name)
+    if (bola == 'cobblemon:master_ball' || bola == 'cobblemon:cherish_ball') bola = 'cobblemon:poke_ball'
+    d.putString('bola', bola)
+
+    const taxa = CobblemonMod.INSTANCE.config.shinyRate / (treinadorDiferente(mae, pai) ? 6 : 1)
+    d.putBoolean('shiny', Math.random() < 1 / taxa)
+
+    const passos = Math.max(1, base.eggCycles) * SEGUNDOS_POR_CICLO
+    d.putInt('passos', passos)
+    d.putInt('total', passos)
+    return d
+  }
+
+  const formatarTempo = s => s >= 60 ? `${Math.floor(s / 60)} min ${s % 60} s` : `${s} s`
+
+  // nome e descricao do ovo a partir dos dados
+  const atualizarVisual = (stack, d) => {
+    stack.set(DataComponents.CUSTOM_NAME, Text.of(`Ovo de ${d.getString('nome')}`).yellow().italic(false))
+    const linhas = new ArrayList()
+    linhas.add(Text.of(`Pais: ${d.getString('pais')}`).gray().italic(false))
+    linhas.add(Text.of('IVs: ' + STATS_NOME.map((n, i) => n + ' ' + d.getInt('iv' + i)).join(' / ')).darkGray().italic(false))
+    if (d.contains('natureza')) linhas.add(Text.of(`Natureza: ${String(d.getString('natureza')).split(':')[1]}`).gray().italic(false))
+    linhas.add(Text.of(`Choca em: ${formatarTempo(d.getInt('passos'))} no inventario`).aqua().italic(false))
+    linhas.add(Text.of('ou na Garden Cloche com feno').darkAqua().italic(false))
+    stack.set(DataComponents.LORE, new ItemLore(linhas))
+  }
+
+  const lerDados = stack => {
+    const cd = stack.get(DataComponents.CUSTOM_DATA)
+    return cd == null ? null : cd.copyTag()
+  }
+  const gravarDados = (stack, d) => stack.set(DataComponents.CUSTOM_DATA, CustomData.of(d))
+
+  const novoOvo = dados => {
+    const stack = Item.of(OVO)
+    gravarDados(stack, dados)
+    atualizarVisual(stack, dados)
+    return stack
+  }
+
+  // ---------------------------------------------------------------- chocar
+  const criarPokemon = d => {
+    let props = `${d.getString('especie')} level=1 shiny=${d.getBoolean('shiny')} pokeball=${d.getString('bola')}`
+    if (d.contains('natureza')) props += ` nature=${d.getString('natureza')}`
+    const pk = PokemonProperties.Companion.parse(props).create()
+
+    if (d.contains('forma')) {
+      pk.species.forms.forEach(f => { if (String(f.name) == d.getString('forma')) pk.setForm(f) })
+    }
+    for (let i = 0; i < 6; i++) pk.setIV(STATS[i], d.getInt('iv' + i))
+    if (d.getBoolean('oculta')) {
+      const t = templateOculta(pk.species)
+      if (t != null) pk.updateAbility(new Ability(t, false, Priority.LOW))
+    }
+    return pk
+  }
+
+  const anunciar = (player, pk, ondeFoi) => {
+    const nome = pk.species.translatedName
+    player.tell(Text.of('O ovo chocou! ').gold().append(Text.of(nome).yellow()).append(Text.of(` nasceu e foi ${ondeFoi}.`).gold()))
+    if (pk.shiny) player.tell(Text.of('✦ E ele é SHINY! ✦').lightPurple().bold())
+    player.server.runCommandSilent(`playsound minecraft:entity.chicken.egg player ${player.username} ${player.x} ${player.y} ${player.z} 1 0.8`)
+    player.server.runCommandSilent(`playsound minecraft:entity.player.levelup player ${player.username} ${player.x} ${player.y} ${player.z} 0.6 1.6`)
+  }
+
+  const temCorpoQuente = player => {
+    let quente = false
+    CobblemonMod.INSTANCE.storage.getParty(player).forEach(pk => {
+      if (pk == null) return
+      const hab = String(pk.ability.name)
+      if (hab == 'flamebody' || hab == 'magmaarmor') quente = true
+    })
+    return quente
+  }
+
+  // Ovos no inventario: o tempo passa 1 s por segundo (2 s com Flame Body / Magma Armor no time)
+  PlayerEvents.tick(event => {
+    const player = event.player
+    if (player.level.isClientSide() || event.server.tickCount % 20 != 0) return
+    const inv = player.getInventory()
+    let ritmo = -1
+    for (let i = 0; i < inv.getContainerSize(); i++) {
+      const stack = inv.getItem(i)
+      if (stack.id != OVO) continue
+      const d = lerDados(stack)
+      if (d == null) continue
+      if (ritmo < 0) ritmo = temCorpoQuente(player) ? 2 : 1
+
+      const resta = d.getInt('passos') - ritmo
+      if (resta > 0) {
+        d.putInt('passos', resta)
+        gravarDados(stack, d)
+        if (resta % 5 < ritmo) atualizarVisual(stack, d) // atualiza o texto a cada ~5 s
+        continue
+      }
+      inv.setItem(i, ItemStackJ.EMPTY)
+      const pk = criarPokemon(d)
+      const storage = CobblemonMod.INSTANCE.storage
+      if (storage.getParty(player).add(pk)) anunciar(player, pk, 'pro seu time')
+      else { storage.getPC(player).add(pk); anunciar(player, pk, 'pro seu PC') }
+    }
+  })
+
+  // Garden Cloche: quando sai a casca, o ovo da semente vira o Pokémon no PC do dono do Pasture
+  const chocarNasCloches = server => {
+    const vistas = new Set()
+    server.players.forEach(player => {
+      const level = player.level
+      const ccx = player.blockX >> 4, ccz = player.blockZ >> 4
+      for (let cx = ccx - CLOCHE_RAIO_CHUNKS; cx <= ccx + CLOCHE_RAIO_CHUNKS; cx++) {
+        for (let cz = ccz - CLOCHE_RAIO_CHUNKS; cz <= ccz + CLOCHE_RAIO_CHUNKS; cz++) {
+          if (!level.hasChunk(cx, cz)) continue
+          level.getChunk(cx, cz).getBlockEntities().values().forEach(be => {
+            if (!(be instanceof Cloche) || be.isDummy()) return
+            const chave = `${level.dimension}|${be.blockPos.asLong()}`
+            if (vistas.has(chave)) return
+            vistas.add(chave)
+
+            const inv = be.getInventory()
+            const ovo = inv.get(Cloche.SLOT_SEED)
+            if (ovo.id != OVO) return
+            let slotCasca = -1
+            for (let s = 0; s < inv.size(); s++) if (inv.get(s).id == CASCA) slotCasca = s
+            if (slotCasca < 0) return
+
+            const d = lerDados(ovo)
+            if (d == null) return
+            const dono = server.getPlayerList().getPlayer(JUUID.fromString(d.getString('dono')))
+            if (dono == null) return // dono offline: espera ele entrar
+
+            inv.set(slotCasca, ItemStackJ.EMPTY)
+            inv.set(Cloche.SLOT_SEED, ItemStackJ.EMPTY)
+            be.setChanged()
+            level.sendBlockUpdated(be.blockPos, be.blockState, be.blockState, 3)
+
+            const pk = criarPokemon(d)
+            CobblemonMod.INSTANCE.storage.getPC(dono).add(pk)
+            anunciar(dono, pk, 'pro seu PC (Garden Cloche)')
+            const p = be.blockPos
+            server.runCommandSilent(`execute in ${level.dimension} run particle minecraft:heart ${p.x + 0.5} ${p.y + 1.2} ${p.z + 0.5} 0.3 0.3 0.3 0 8`)
+          })
+        }
+      }
+    })
+  }
+
+  // ---------------------------------------------------------------- botar ovos
+  const bausPerto = (level, pasto) => {
+    const px = pasto.getX(), py = pasto.getY(), pz = pasto.getZ()
+    const baus = []
+    for (let cx = (px - BAU_RAIO) >> 4; cx <= (px + BAU_RAIO) >> 4; cx++) {
+      for (let cz = (pz - BAU_RAIO) >> 4; cz <= (pz + BAU_RAIO) >> 4; cz++) {
+        if (!level.hasChunk(cx, cz)) continue
+        level.getChunk(cx, cz).getBlockEntities().values().forEach(be => {
+          const p = be.getBlockPos()
+          if (Math.abs(p.getX() - px) > BAU_RAIO || Math.abs(p.getZ() - pz) > BAU_RAIO || Math.abs(p.getY() - py) > BAU_ALTURA) return
+          if (!BAU_IDS.test(String(level.getBlock(p).id))) return
+          const handler = level.getCapability(ItemCaps.BLOCK, p, null)
+          if (handler != null) baus.push({ handler: handler, dist: p.distSqr(pasto) })
+        })
+      }
+    }
+    return baus.sort((a, b) => a.dist - b.dist)
+  }
+
+  const guardarOvo = (baus, stack) => {
+    for (const b of baus) {
+      if (ItemHandlerHelper.insertItemStacked(b.handler, stack, false).isEmpty()) return true
+    }
+    return false
+  }
+
+  // Ninho: so reproduz com um fardo de feno embaixo do Pasture (modo ninho, ver modo_pasture.js).
+  // Os outros modos (bloco de osso = drops, resto = so trabalhos) nao botam ovo no bau.
+  const temNinho = (level, pos) => String(level.getBlock(pos.below()).id) == NINHO
+
+  const formarPares = pokemons => {
+    const usados = new Set(), pares = []
+    for (let i = 0; i < pokemons.length; i++) {
+      if (usados.has(i)) continue
+      let melhor = -1
+      for (let j = i + 1; j < pokemons.length; j++) {
+        if (usados.has(j) || maeDoPar(pokemons[i], pokemons[j]) == null) continue
+        if (melhor < 0 || String(pokemons[j].species.name) == String(pokemons[i].species.name)) melhor = j
+      }
+      if (melhor >= 0) { usados.add(i); usados.add(melhor); pares.push([pokemons[i], pokemons[melhor]]) }
+    }
+    return pares
+  }
+
+  const reproduzir = server => {
+    const teste = modoTeste(server)
+    server.getAllLevels().forEach(level => {
+      const pastos = new Map()
+      level.getAllEntities().forEach(e => {
+        if (!(e instanceof PokemonEntityRep) || e.tethering == null) return
+        const t = e.tethering
+        const chave = String(t.getPasturePos().asLong())
+        if (!pastos.has(chave)) pastos.set(chave, { pos: t.getPasturePos(), dono: t.getPlayerId(), pokemons: [] })
+        pastos.get(chave).pokemons.push(e.pokemon)
+      })
+
+      pastos.forEach(pasto => {
+        if (pasto.pokemons.length < 2 || !temNinho(level, pasto.pos)) return
+        formarPares(pasto.pokemons).forEach(par => {
+          const chance = CHANCE_MELHOR_POR_MIN * chanceDoPar(par[0], par[1]) / 0.7
+          if (!teste && Math.random() >= chance) return
+          const baus = bausPerto(level, pasto.pos)
+          if (baus.length == 0) return
+          const mae = maeDoPar(par[0], par[1])
+          const pai = String(mae.uuid) == String(par[0].uuid) ? par[1] : par[0]
+          if (!guardarOvo(baus, novoOvo(criarDadosOvo(mae, pai, pasto.dono)))) return
+          const p = pasto.pos
+          server.runCommandSilent(`execute in ${level.dimension} run particle minecraft:heart ${p.x + 0.5} ${p.y + 1.5} ${p.z + 0.5} 0.6 0.4 0.6 0 6`)
+          server.runCommandSilent(`execute in ${level.dimension} run playsound minecraft:entity.chicken.egg block @a ${p.x} ${p.y} ${p.z} 1 1`)
+        })
+      })
+    })
+  }
+
+  ServerEvents.tick(event => {
+    const server = event.server
+    if (server.tickCount % intervaloReproducao(server) == 0) reproduzir(server)
+    if (server.tickCount % CLOCHE_INTERVALO == 0) chocarNasCloches(server)
+  })
+})()

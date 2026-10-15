@@ -1,0 +1,59 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:coal",
+          "weight": 30
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:raw_iron",
+          "weight": 25
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:raw_copper",
+          "weight": 25,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "type": "minecraft:uniform",
+                "min": 2,
+                "max": 5
+              }
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "alltheores:raw_tin",
+          "weight": 15
+        },
+        {
+          "type": "minecraft:item",
+          "name": "create:raw_zinc",
+          "weight": 15
+        },
+        {
+          "type": "minecraft:item",
+          "name": "alltheores:raw_lead",
+          "weight": 12
+        },
+        {
+          "type": "minecraft:item",
+          "name": "alltheores:salt",
+          "weight": 8
+        },
+        {
+          "type": "minecraft:item",
+          "name": "alltheores:sulfur",
+          "weight": 6
+        }
+      ]
+    }
+  ]
+}
